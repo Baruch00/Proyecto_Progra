@@ -1,0 +1,248 @@
+#include <iostream>
+
+#define separa cout<<"\n\t--------------------------------------------------";
+
+void MENU();
+int OPCION(int);
+void M_UNIFORMES();
+void M_CALZADO();
+void M_ORGANICO();
+void M_CAMA();
+
+using namespace std;
+
+int main(){
+	int Opc1,opc2,precio,res,cantidad;
+	system("color 74");
+	do{
+		MENU(); // Imprime en pantalla el menu principal
+		Opc1 = OPCION(Opc1); // Permite insertar valor desde la pantalla para desplazarse en el menu principal (opc1)
+		switch(Opc1){
+			case 0://Ejecucion al dar 0
+				system("cls");
+				cout<<"\n\t\t\tEL VALOR DE TU CARRITO ES DE: "<<precio<<endl;
+				cout<<"\n\t\t\tDESEA SEGUIR COMPRANDO?\n\t 1.-Si, deseo seguir comprando          2.-Ir a pagar"<<endl;
+				cin>>res;
+				break;
+				
+			case 1://ejecucion de opcion 1
+				do{
+					M_UNIFORMES();//desplega menu de uniformes
+					opc2 = OPCION(opc2);
+					switch(opc2){//suma los precios de cada opcion 
+							case 0:
+								break;
+							case 1:
+								int con;
+								cout<<"\nCantidad de Pixelados que desea comprar? ";
+								cin>>cantidad;
+								cout<<"\nConfirmar compra? \n\t\t\t1.-Si  2.-No";
+								cin>>con;
+								if(con==1){
+								cantidad=cantidad*800;
+								precio=cantidad;
+								}
+								break;
+							case 2:
+									int con1;
+									cantidad=0;
+								cout<<"\nCantidad de Beige que desea comprar? ";
+								cin>>cantidad;
+								cout<<"\nConfirmar compra? \n\t\t\t1.-Si  2.-No";
+								cin>>con;
+								if(con==1){
+								cantidad=cantidad*750;
+								precio=precio+cantidad;
+								}
+								break;
+							case 3:
+									int con2;
+									cantidad=0;
+								cout<<"\nCantidad de Gala que desea comprar? ";
+								cin>>cantidad;
+								cout<<"\nConfirmar compra? \n\t\t\t1.-Si  2.-No";
+								cin>>con;
+								if(con==1){
+								cantidad=cantidad+1000;
+								precio=precio+cantidad;
+								}
+								break;
+							case 4:
+								precio=precio+350;
+								break;
+							case 5:
+								precio=precio+400;
+								break;	
+							default:
+								separa
+								cout<<"\n\t\tOpcion invalida"<<endl;
+								system("\nPAUSE");
+								}
+				}while(opc2 != 0);
+				break;
+			case 2://ejecucion al dar 2
+				do{
+					M_CALZADO();//desplega menu de calzado 
+					opc2 = OPCION(opc2);
+					switch(opc2){//suma los precios de calzado elegido 
+							case 0: 
+								break;
+							case 1:
+								precio=precio+500;
+								break;
+							case 2:
+								precio=precio+200;
+								break;
+							case 3:
+								precio=precio+250;
+								break;
+							case 4:
+								precio=precio+350;
+								break;
+							default:
+								separa
+								cout<<"\n\t\tOpcion invalida"<<endl;
+								system("\nPAUSE");
+								}
+				}while(opc2 != 0);
+				break;	
+			case 3://ejecutar opcion 3
+				do{
+					M_ORGANICO();//desplega menu de oranico
+					opc2 = OPCION(opc2);
+					switch(opc2){//suma precios de equipo 
+							case 0:
+								break;
+							case 1:
+								precio=precio+500;
+								break;
+							case 2:
+								precio=precio+750;
+								break;
+							case 3:
+								precio=precio+100;
+								break;
+							case 4:
+								precio=precio+150;
+								break;
+							case 5:
+								precio=precio+100;
+								break;	
+							case 6:
+								precio=precio+400;
+								break;
+							case 7:
+								precio=precio+200;
+								break;
+							case 8:
+								precio=precio+350;
+								break;
+							default:
+								separa
+								cout<<"\n\t\tOpcion invalida"<<endl;
+								system("\nPAUSE");
+								}
+				}while(opc2 != 0);
+				break;
+			case 4:
+				do{
+					M_CAMA();
+					opc2 = OPCION(opc2);
+					switch(opc2){
+							case 0:
+								break;
+							case 1:
+								precio=precio+200;
+								break;
+							case 2:
+								precio=precio+250;
+								break;
+							case 3:
+								precio=precio+100;
+								break;
+							case 4:
+								precio=precio+50;
+								break;
+							default:
+								separa
+								cout<<"\n\t\tOpcion invalida"<<endl;
+								system("\nPAUSE");
+								}
+			
+				}while(opc2 != 0);
+				break;	
+				default:
+						separa
+						cout<<"\n\t\tOpcion invalida"<<endl;
+						system("\nPAUSE");
+		}
+	}while(res!=2);
+	
+	return 0;		
+}
+
+
+void MENU(){
+	system("cls");
+	cout<<"\n\t---------------------BARUSHOP---------------------"<<endl;
+	cout<<"\n\tBIENVENIDO A LA TIENDA MAS CACHONDA DE TODA SEDENA"<<endl;
+	separa
+	cout<<"\n\t1.-UNIFORMES."<<endl;
+	cout<<"\n\t2.-CALZADO."<<endl;
+	cout<<"\n\t3.-EQUIPO ORGANICO."<<endl;
+	cout<<"\n\t4.-ROPA DE CAMA."<<endl;
+	cout<<"\n\n\t0.-VER CARRITO DE COMPRAS"<<endl;
+	
+	separa
+}
+
+int OPCION(int x){
+	cout<<"\n\tEliga una opcion: ";
+	cin>>x;
+	return (x);
+}
+
+void M_UNIFORMES(){
+	system("cls");
+	cout<<"\n\t-------------------UNIFORMES----------------------"<<endl;
+	cout<<"\n\t1.-Pixelado...............$800"<<endl;
+	cout<<"\n\t2.-Beige..................$750"<<endl;
+	cout<<"\n\t3.-Gala...................$1000"<<endl;
+	cout<<"\n\t4.-Capote.................$350"<<endl;
+	cout<<"\n\t5.-Pans...................$400"<<endl;
+	cout<<"\n\t0.-Regresar al MENU PRINCIPAL."<<endl;
+}
+
+void M_CALZADO(){
+	system("cls");
+	cout<<"\n\t-------------------CALZADO------------------------"<<endl;
+	cout<<"\n\t1.-Botas....................$500"<<endl;
+	cout<<"\n\t2.-Botines..................$200"<<endl;
+	cout<<"\n\t3.-Tenis deportivos.........$250"<<endl;
+	cout<<"\n\t4.-Zapatos de gala..........$350"<<endl;
+	cout<<"\n\t0.-Regresar al MENU PRINCIPAL."<<endl;
+}
+
+void M_ORGANICO(){
+	system("cls");
+	cout<<"\n\t---------------EQUIPO ORGANICO---------------------"<<endl;
+	cout<<"\n\t1.-Fornitura................$500"<<endl;
+	cout<<"\n\t2.-Casco....................$750"<<endl;
+	cout<<"\n\t3.-Cubiertos................$100"<<endl;
+	cout<<"\n\t4.-Anfora...................$150"<<endl;
+	cout<<"\n\t5.-Platos de campaña........$100"<<endl;
+	cout<<"\n\t6.-Saco de avio.............$400"<<endl;
+	cout<<"\n\t7.-Saco de racion...........$200"<<endl;
+	cout<<"\n\t8.-Coreana..................$350"<<endl;
+	cout<<"\n\t0.-Regresar al MENU PRINCIPAL."<<endl;
+}
+
+void M_CAMA(){
+	system("cls");
+	cout<<"\n\t-------------------EQUIPO DE CAMA------------------"<<endl;
+	cout<<"\n\t1.-Manta Verde..............$200"<<endl;
+	cout<<"\n\t2.-Corrugada................$250"<<endl;
+	cout<<"\n\t3.-Sabanas blancas..........$100"<<endl;
+	cout<<"\n\t4.-Fundas...................$50"<<endl;
+	cout<<"\n\t0.-Regresar al MENU PRINCIPAL."<<endl;
+}
